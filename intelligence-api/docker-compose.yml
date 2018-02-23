@@ -1,0 +1,19 @@
+version: "3"
+services:
+  netstats:
+    build: ./intelligence-api
+    environment:
+      - "NODE_ENV=production"
+      - "RPC_HOST=pyethapp"
+      - "RPC_PORT=8545"
+      - "LISTENING_PORT=30303"
+      - "INSTANCE_NAME=awesome-testnet-node"
+      - "WS_SERVER=http://your.netstats.server.com"
+      - "WS_SECRET=your-secret-password"
+      - "VERBOSITY=2"
+    networks:
+      - netstats
+    restart: always
+
+networks:
+  netstats:
